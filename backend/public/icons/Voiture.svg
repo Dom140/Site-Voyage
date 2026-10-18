@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Même fond circulaire (Couleur 1) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments de la voiture (Couleur 2) -->
+  <g fill="#38BDF8">
+    <!-- Toit & Habitacle (Pare-brise et fenêtres) -->
+    <path d="M 188 152 C 204 140 226 136 256 136 C 286 136 308 140 324 152 L 358 220 L 154 220 Z" />
+
+    <!-- Corps principal / Carrosserie de la voiture -->
+    <path d="M 136 236 C 120 236 108 248 108 264 L 108 340 C 108 352 118 362 130 362 L 140 362 L 140 388 C 140 399 149 408 160 408 L 180 408 C 191 408 200 399 200 388 L 200 362 L 312 362 L 312 388 C 312 399 321 408 332 408 L 352 408 C 363 408 372 399 372 388 L 372 362 L 382 362 C 394 362 404 352 404 340 L 404 264 C 404 248 392 236 376 236 Z" />
+
+    <!-- Phares avant (Bandeaux LED horizontaux) -->
+    <rect x="132" y="260" width="64" height="18" rx="9" />
+    <rect x="316" y="260" width="64" height="18" rx="9" />
+
+    <!-- Calandre / Grille avant -->
+    <rect x="220" y="266" width="72" height="10" rx="5" />
+
+    <!-- Plaque d'immatriculation / Zone centrale basse -->
+    <rect x="216" y="310" width="80" height="20" rx="4" />
+
+    <!-- Rétroviseurs extérieurs -->
+    <path d="M 104 228 C 92 228 84 236 84 244 C 84 250 92 254 108 254 Z" />
+    <path d="M 408 228 C 420 228 428 236 428 244 C 428 250 420 254 404 254 Z" />
+  </g>
+</svg>

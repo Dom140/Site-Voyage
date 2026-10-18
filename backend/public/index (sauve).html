@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnet de Voyage</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            
+            --color-transport: #007bff;
+            --color-restauration: #fd7e14;
+            --color-hebergement: #6f42c1;
+            --color-visite: #28a745;
+            --color-activite: #17a2b8;
+            --color-autre: #6c757d;
+
+            --pale-transport: #cce5ff;
+            --pale-restauration: #ffe8d6;
+            --pale-hebergement: #e8dff5;
+            --pale-visite: #d4edda;
+            --pale-activite: #d1ecf1;
+            --pale-autre: #e2e3e5;
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 10px; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+        }
+
+        /* Menu Supérieur */
+        .top-navbar {
+            background: #343a40;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            font-size: 0.95rem;
+            border: none;
+            background: transparent;
+        }
+
+        .nav-link:hover:not(:disabled) {
+            background: #495057;
+        }
+
+        .nav-link.disabled {
+            color: #6c757d;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .nav-auth {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-initials-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .user-initials-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .auth-btn-small {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .auth-btn-small:hover {
+            background: #0056b3;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .modal-card h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px; right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .auth-switch-text {
+            text-align: center;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        .auth-switch-text a {
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .google-btn {
+            background: #db4437;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .google-btn:hover {
+            background: #c23321;
+        }
+
+        h1, h2 { font-size: 1.5rem; text-align: center; }
+
+        .search-form { 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .search-form input, .search-form select, .search-form button { 
+            padding: 10px; 
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .search-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .trip-card { 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 10px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trip-card button {
+            padding: 8px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .section-view {
+            display: none;
+        }
+        .section-view.active {
+            display: block;
+        }
+
+        .global-prefs-bar {
+            background: #495057;
+            color: white;
+            padding: 10px 15px;
+            margin: 10px 0 15px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .prefs-icons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .prefs-icon-btn {
+            background: #6c757d;
+            border: 1px solid #adb5bd;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .prefs-icon-btn:hover {
+            background: #5a6268;
+        }
+
+        .icon-box {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid white;
+            background: transparent;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .icon-box.compact-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 2px;
+            right: 2px;
+            height: 3px;
+            background: white;
+        }
+
+        .icon-box.level1-icon::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            height: 2px;
+            background: white;
+        }
+        .icon-box.level1-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            height: 2px;
+            background: white;
+        }
+
+        .icon-box.level2-icon::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 2px;
+            right: 2px;
+            height: 1px;
+            background: white;
+        }
+        .icon-box.level2-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            left: 2px;
+            right: 2px;
+            height: 1px;
+            background: white;
+        }
+
+        .day-bar { 
+            background: #e0e0e0; 
+            padding: 12px; 
+            margin: 8px 0; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            font-weight: normal; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .day-bar strong {
+            font-weight: bold;
+        }
+
+        .day-bar .day-date {
+            font-weight: normal;
+        }
+
+        .functions-container { 
+            display: none; 
+            padding-left: 15px; 
+        }
+
+        .function-item {
+            margin: 6px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: margin-left 0.2s ease;
+        }
+
+        .offset-hebergement, .offset-transport { margin-left: 0px; }
+        .offset-restauration { margin-left: 10px; }
+        .offset-visite, .offset-activite { margin-left: 20px; }
+
+        .function-bar-minimal { 
+            padding: 8px 10px; 
+            cursor: pointer;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .item-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .bar-right-zone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .type-transport { border-left: 5px solid var(--color-transport); }
+        .type-restauration { border-left: 5px solid var(--color-restauration); }
+        .type-hebergement { border-left: 5px solid var(--color-hebergement); }
+        .type-visite { border-left: 5px solid var(--color-visite); }
+        .type-activite { border-left: 5px solid var(--color-activite); }
+        .type-autre { border-left: 5px solid var(--color-autre); }
+
+        .function-detail {
+            display: none;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-top: 1px dashed #dee2e6;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .detail-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .detail-text-side {
+            flex: 1;
+        }
+
+        .detail-images-side {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: flex-end;
+            max-width: 240px;
+            flex-shrink: 0;
+        }
+
+        .detail-row {
+            margin-bottom: 4px;
+        }
+
+        .detail-image {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .summary-bar { 
+            background: #343a40; 
+            color: white; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin-top: 20px; 
+            font-weight: bold; 
+            display: flex; 
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        @media (min-width: 768px) {
+            body { padding: 20px; max-width: 1000px; margin: 0 auto; }
+            .search-form { flex-direction: row; flex-wrap: wrap; align-items: center; }
+            .search-form input, .search-form select { width: auto; flex: 1; min-width: 150px; }
+            .search-form button { width: auto; padding: 10px 20px; }
+            .trip-card { flex-direction: row; justify-content: space-between; align-items: center; }
+            .trip-card button { width: auto; }
+            .summary-bar { flex-direction: row; justify-content: space-between; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Supérieur -->
+    <nav class="top-navbar">
+        <div class="nav-links">
+            <button class="nav-link" onclick="switchSection('shared')">Voyages partagés</button>
+            <button class="nav-link disabled" id="nav-mytrips-btn" onclick="switchSection('mytrips')">Mes voyages</button>
+            <button class="nav-link" onclick="switchSection('about')">A propos</button>
+            <button class="nav-link" onclick="switchSection('help')">Aide</button>
+        </div>
+        <div class="nav-auth" id="nav-auth-container">
+            <!-- Dynamique -->
+        </div>
+    </nav>
+
+    <h1>Mon Carnet de Voyage</h1>
+
+    <div id="section-shared" class="section-view active">
+        <div class="search-form">
+            <h3>Rechercher un séjour</h3>
+            <input type="text" id="origin" placeholder="Pays de départ">
+            <input type="text" id="destination" placeholder="Pays d'arrivée">
+            <select id="transport">
+                <option value="">-- Mode de transport --</option>
+                <option value="Voiture">Voiture</option>
+                <option value="Avion">Avion</option>
+                <option value="Train">Train</option>
+                <option value="Marcheur">Marcheur</option>
+                <option value="Velo">Velo</option>
+                <option value="Moto">Moto</option>
+                <option value="Bus">Bus</option>
+                <option value="Bateau">Bateau</option>
+                <option value="Voilier">Voilier</option>
+                <option value="Taxi">Taxi</option>
+                <option value="Helicoptere">Helicoptere</option>
+            </select>
+            <input type="number" id="min_duration" placeholder="Durée min (jours)" style="width: 120px;">
+            <button onclick="searchTrips()">Rechercher</button>
+        </div>
+
+        <div id="results"></div>
+        <div id="trip-detail"></div>
+    </div>
+
+    <div id="section-mytrips" class="section-view">
+        <h2>Mes Voyages</h2>
+        <p>Espace de gestion de vos carnets de voyage personnels.</p>
+    </div>
+
+    <div id="section-about" class="section-view">
+        <h2>A propos</h2>
+        <p>Application de gestion et de partage de carnets de voyage dynamiques.</p>
+    </div>
+
+    <div id="section-help" class="section-view">
+        <h2>Aide</h2>
+        <p>Connectez-vous pour débloquer l'accès à vos voyages personnels et gérer votre profil.</p>
+    </div>
+
+    <!-- Modal Connexion / Inscription / Profil -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            <div id="modal-content-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Session active + Persistance de la liste d'utilisateurs
+        let currentUser = JSON.parse(localStorage.getItem('travel_session')) || null;
+        let usersDb = JSON.parse(localStorage.getItem('travel_users_db')) || {};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateAuthUI();
+        });
+
+        function getInitials(name) {
+            if (!name) return 'U';
+            const parts = name.trim().split(' ');
+            if (parts.length >= 2) {
+                return (parts[0][0] + parts[1][0]).toUpperCase();
+            }
+            return name.substring(0, 2).toUpperCase();
+        }
+
+        function getAvatarColor(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            let color = '#';
+            for (let i = 0; i < 3; i++) {
+                let value = (hash >> (i * 8)) & 0xFF;
+                color += ('00' + value.toString(16)).substr(-2);
+            }
+            return color;
+        }
+
+        function updateAuthUI() {
+            const authContainer = document.getElementById('nav-auth-container');
+            const myTripsBtn = document.getElementById('nav-mytrips-btn');
+
+            if (currentUser) {
+                myTripsBtn.classList.remove('disabled');
+                const initials = getInitials(currentUser.name);
+                const bgColor = getAvatarColor(currentUser.name);
+
+                authContainer.innerHTML = `
+                    <div class="user-initials-avatar" style="background-color: ${bgColor};" onclick="openProfileModal()" title="${currentUser.name} - Gérer mon profil">
+                        ${initials}
+                    </div>
+                `;
+            } else {
+                myTripsBtn.classList.add('disabled');
+                authContainer.innerHTML = `
+                    <button class="auth-btn-small" onclick="openLoginModal()">Connexion</button>
+                `;
+                if (document.getElementById('section-mytrips').classList.contains('active')) {
+                    switchSection('shared');
+                }
+            }
+            
+            if (currentUser) {
+                localStorage.setItem('travel_session', JSON.stringify(currentUser));
+            } else {
+                localStorage.removeItem('travel_session');
+            }
+            localStorage.setItem('travel_users_db', JSON.stringify(usersDb));
+        }
+
+        function switchSection(sectionName) {
+            if (sectionName === 'mytrips' && !currentUser) {
+                alert("Veuillez vous connecter pour accéder à vos voyages.");
+                openLoginModal();
+                return;
+            }
+            document.querySelectorAll('.section-view').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+        }
+
+        function openLoginModal() {
+            const body = document.getElementById('modal-content-body');
+            body.innerHTML = `
+                <h3>Connexion</h3>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="login-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="login-password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn-small" style="width: 100%;">Se connecter</button>
+                </form>
+                <button class="google-btn" onclick="loginWithGoogle()">
+                    <span>Se connecter avec Google</span>
+                </button>
+                <div class="auth-switch-text">
+                    Pas encore de compte ? <a onclick="openRegisterModal()">Créer un compte</a>
+                </div>
+            `;
+            document.getElementById('auth-modal').style.display = 'flex';
+        }
+
+        function openRegisterModal() {
+            const body = document.getElementById('modal-content-body');
+            body.innerHTML = `
+                <h3>Créer un compte</h3>
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" id="reg-name" required placeholder="Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="reg-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" id="reg-password" required placeholder="••••••••">
+                    </div>
+                    <div class="form-group">
+                        <label>Rôle souhaité</label>
+                        <select id="reg-role">
+                            <option value="user">Utilisateur enregistré</option>
+                            <option value="admin">Administrateur</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="auth-btn-small" style="width: 100%;">S'inscrire</button>
+                </form>
+                <div class="auth-switch-text">
+                    Déjà un compte ? <a onclick="openLoginModal()">Se connecter</a>
+                </div>
+            `;
+            document.getElementById('auth-modal').style.display = 'flex';
+        }
+
+        function openProfileModal() {
+            const body = document.getElementById('modal-content-body');
+            const initials = getInitials(currentUser.name);
+            const bgColor = getAvatarColor(currentUser.name);
+
+            body.innerHTML = `
+                <h3>Mon Profil</h3>
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background-color: ${bgColor}; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold;">
+                        ${initials}
+                    </div>
+                    <p style="margin: 5px 0 0 0; font-weight: bold;">${currentUser.name}</p>
+                    <p style="margin: 0; font-size: 0.8rem; color: #666;">${currentUser.email}</p>
+                </div>
+                <form onsubmit="handleUpdateProfile(event)">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" id="profile-name" value="${currentUser.name}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="profile-email" value="${currentUser.email}" required>
+                    </div>
+                    <button type="submit" class="auth-btn-small" style="width: 100%; margin-bottom: 10px;">Mettre à jour</button>
+                </form>
+                <button onclick="logout()" class="auth-btn-small" style="width: 100%; background: #dc3545;">Se déconnecter</button>
+            `;
+            document.getElementById('auth-modal').style.display = 'flex';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').style.display = 'none';
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value.toLowerCase();
+            const role = document.getElementById('reg-role').value;
+            
+            const userObj = { name, email, role };
+            usersDb[email] = userObj; // Enregistrement permanent dans la DB locale
+            currentUser = userObj;
+
+            updateAuthUI();
+            closeAuthModal();
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.toLowerCase();
+            
+            // Si le compte existe déjà en base locale, on reprend TOUTES ses infos (nom complet, rôle)
+            if (usersDb[email]) {
+                currentUser = usersDb[email];
+            } else {
+                // Sinon création initiale propre
+                const derived = email.split('@')[0];
+                const formattedName = derived.charAt(0).toUpperCase() + derived.slice(1);
+                const newUser = { name: formattedName, email: email, role: 'user' };
+                usersDb[email] = newUser;
+                currentUser = newUser;
+            }
+
+            updateAuthUI();
+            closeAuthModal();
+        }
+
+        function loginWithGoogle() {
+            const email = "google.user@gmail.com";
+            if (!usersDb[email]) {
+                usersDb[email] = { name: "Utilisateur Google", email: email, role: 'user' };
+            }
+            currentUser = usersDb[email];
+            updateAuthUI();
+            closeAuthModal();
+        }
+
+        function handleUpdateProfile(e) {
+            e.preventDefault();
+            const newName = document.getElementById('profile-name').value;
+            const newEmail = document.getElementById('profile-email').value.toLowerCase();
+
+            // Mettre à jour la base
+            if (currentUser.email !== newEmail) {
+                delete usersDb[currentUser.email];
+            }
+
+            currentUser.name = newName;
+            currentUser.email = newEmail;
+            usersDb[newEmail] = { ...currentUser };
+
+            updateAuthUI();
+            closeAuthModal();
+            alert("Profil mis à jour !");
+        }
+
+        function logout() {
+            currentUser = null;
+            updateAuthUI();
+            closeAuthModal();
+            switchSection('shared');
+        }
+
+        function formatDuration(minutes) {
+            if (!minutes) return '';
+            if (minutes < 60) return `${minutes} min`;
+            const h = Math.floor(minutes / 60);
+            const m = minutes % 60;
+            return m > 0 ? `${h}h${m.toString().padStart(2, '0')}` : `${h}h`;
+        }
+
+        function formatDateFull(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            const formatted = new Intl.DateTimeFormat('fr-FR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            }).format(date);
+            return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+        }
+
+        async function searchTrips() {
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            const transport = document.getElementById('transport').value;
+            const min_duration = document.getElementById('min_duration').value;
+
+            let params = new URLSearchParams();
+            if (origin) params.append('origin', origin);
+            if (destination) params.append('destination', destination);
+            if (transport) params.append('transport', transport);
+            if (min_duration) params.append('min_duration', min_duration);
+
+            const response = await fetch(`/api/trips/search?${params.toString()}`);
+            const trips = await response.json();
+
+            let html = '<h3>Résultats de recherche</h3>';
+            if(trips.length === 0) {
+                html += '<p>Aucun séjour trouvé.</p>';
+            } else {
+                trips.forEach(trip => {
+                    html += `<div class="trip-card">
+                        <strong>${trip.title}</strong> (${trip.country_origin} ➔ ${trip.country_destination})
+                        <button onclick="loadTripDetail(${trip.id})">Voir le détail</button>
+                    </div>`;
+                });
+            }
+            document.getElementById('results').innerHTML = html;
+            document.getElementById('trip-detail').innerHTML = '';
+        }
+
+        async function loadTripDetail(tripId) {
+            const response = await fetch(`/api/trips/${tripId}`);
+            const data = await response.json();
+            
+            let totalCostTrip = 0;
+            let totalDays = data.days.length;
+
+            let html = `<h2>Détail du séjour : ${data.trip.title}</h2>`;
+
+            html += `
+                <div class="global-prefs-bar">
+                    <span><strong>Affichage global :</strong></span>
+                    <div class="prefs-icons">
+                        <button class="prefs-icon-btn" onclick="setGlobalDisplay('compact')" title="Compact">
+                            <span class="icon-box compact-icon"></span>
+                        </button>
+                        <button class="prefs-icon-btn" onclick="setGlobalDisplay('level1')" title="Niveau 1">
+                            <span class="icon-box level1-icon"></span>
+                        </button>
+                        <button class="prefs-icon-btn" onclick="setGlobalDisplay('level2')" title="Niveau 2">
+                            <span class="icon-box level2-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            data.days.forEach(day => {
+                let dayCost = 0;
+                let functionsHtml = '';
+
+                day.functions.forEach(func => {
+                    const cost = parseFloat(func.cost_eur || 0);
+                    dayCost += cost;
+                    const fType = func.function_type ? func.function_type.toLowerCase() : 'autre';
+                    const typeClass = `type-${fType}`;
+                    const offsetClass = `offset-${fType}`;
+
+                    const accType = func.accommodation_type || func.hebergement_type || 'Hotel';
+
+                    let iconHtml = '';
+                    if (fType === 'transport' && func.transport_type) {
+                        iconHtml = `<img src="/icons/${func.transport_type}.svg" class="item-icon" alt="${func.transport_type}">`;
+                    } else if (fType === 'restauration') {
+                        const mealIcon = func.meal_type || 'Restauration';
+                        iconHtml = `<img src="/icons/${mealIcon}.svg" class="item-icon" alt="${mealIcon}">`;
+                    } else if (fType === 'visite' || fType === 'activite') {
+                        iconHtml = `<img src="/icons/Ticket.svg" class="item-icon" alt="Ticket">`;
+                    } else if (fType === 'hebergement') {
+                        iconHtml = `<img src="/icons/${accType}.svg" class="item-icon" alt="${accType}">`;
+                    }
+
+                    let transportDetails = [];
+                    if (func.transport_type) transportDetails.push(func.transport_type);
+                    if (func.duration_minutes) transportDetails.push(formatDuration(func.duration_minutes));
+
+                    let mainDisplay = `${iconHtml}<strong>${func.title}</strong>`;
+                    if (fType === 'transport' && transportDetails.length > 0) {
+                        mainDisplay = `${iconHtml}<strong>${func.title}</strong> (${transportDetails.join(' - ')})`;
+                    } else if (fType === 'restauration' && func.meal_type) {
+                        mainDisplay = `${iconHtml}<strong>${func.title}</strong> (${func.meal_type})`;
+                    } else if (fType === 'hebergement') {
+                        mainDisplay = `${iconHtml}<strong>${func.title}</strong> (${accType})`;
+                    }
+
+                    let imagesList = [];
+                    if (func.images && Array.isArray(func.images)) {
+                        imagesList = func.images;
+                    } else if (func.image_url) {
+                        imagesList = func.image_url.split(',').map(s => s.trim()).filter(Boolean);
+                    } else {
+                        const localStored = localStorage.getItem(`func_img_${func.id}`);
+                        if (localStored) imagesList = [localStored];
+                    }
+
+                    let paleBg = 'var(--pale-autre)';
+                    if (fType === 'transport') paleBg = 'var(--pale-transport)';
+                    else if (fType === 'restauration') paleBg = 'var(--pale-restauration)';
+                    else if (fType === 'hebergement') paleBg = 'var(--pale-hebergement)';
+                    else if (fType === 'visite') paleBg = 'var(--pale-visite)';
+                    else if (fType === 'activite') paleBg = 'var(--pale-activite)';
+
+                    functionsHtml += `
+                        <div class="function-item ${typeClass} ${offsetClass}" data-palecolor="${paleBg}">
+                            <div class="function-bar-minimal" onclick="toggleDetail(this)" style="background-color: ${paleBg};">
+                                <div>
+                                    ${mainDisplay}
+                                </div>
+                                <div class="bar-right-zone">
+                                    <span><strong>${cost.toFixed(2)} €</strong></span>
+                                    <small style="color: #888; margin-left: 2px;">▾</small>
+                                </div>
+                            </div>
+                            <div class="function-detail">
+                                <div class="detail-content-wrapper">
+                                    <div class="detail-text-side">
+                                        ${fType === 'transport' && func.transport_type ? `<div class="detail-row"><strong>Transport :</strong> ${func.transport_type}${func.distance_km ? `(${func.distance_km} km)` : ''} ${func.duration_minutes ? `- Durée : ${formatDuration(func.duration_minutes)}` : ''}</div>` : ''}
+                                        ${fType === 'restauration' ? `<div class="detail-row"><strong>Type de repas :</strong> ${func.meal_type || 'Restauration'}</div>` : ''}
+                                        ${(fType === 'visite' || fType === 'activite') ? `<div class="detail-row"><strong>Visite/Activité :</strong> ${func.title}</div>` : ''}
+                                        ${fType === 'hebergement' ? `<div class="detail-row"><strong>Hébergement :</strong> ${accType}</div>` : ''}
+                                        ${func.observations ? `<div class="detail-row"><strong>Obs:</strong> ${func.observations}</div>` : ''}
+                                        ${func.hyperlink ? `<div class="detail-row"><strong>Lien :</strong> <a href="${func.hyperlink}" target="_blank">Lien web</a></div>` : ''}
+                                    </div>
+                                    ${imagesList.length > 0 ? `
+                                        <div class="detail-images-side">
+                                            ${imagesList.map(img => `<img src="${img}" class="detail-image" alt="Illustration">`).join('')}
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                totalCostTrip += dayCost;
+
+                const dateFormatted = formatDateFull(day.date);
+                const dayTitle = dateFormatted ? `<strong>Jour ${day.day_number}</strong> - <span class="day-date">${dateFormatted}</span>` : `<strong>Jour ${day.day_number}</strong>`;
+
+                html += `
+                    <div class="day-bar" onclick="toggleAccordion(this)">
+                        <span>${dayTitle}</span>
+                        <span><strong>${dayCost.toFixed(2)} €</strong> ▾</span>
+                    </div>
+                    <div class="functions-container">
+                        ${functionsHtml}
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="summary-bar">
+                    <span>Synthèse Totale : ${totalDays} jours de séjour</span>
+                    <span>Coût Total : ${totalCostTrip.toFixed(2)} €</span>
+                </div>
+            `;
+
+            document.getElementById('trip-detail').innerHTML = html;
+        }
+
+        function toggleAccordion(element) {
+            const container = element.nextElementSibling;
+            if (container.style.display === "block") {
+                container.style.display = "none";
+                element.style.background = "#e0e0e0";
+            } else {
+                container.style.display = "block";
+                element.style.background = "#d0d0f0";
+            }
+        }
+
+        function toggleDetail(element) {
+            const detailContainer = element.nextElementSibling;
+            const functionItem = element.closest('.function-item');
+            const paleColor = functionItem.getAttribute('data-palecolor');
+
+            element.style.backgroundColor = paleColor;
+
+            if (detailContainer.style.display === "block") {
+                detailContainer.style.display = "none";
+            } else {
+                detailContainer.style.display = "block";
+            }
+        }
+
+        function setGlobalDisplay(mode) {
+            const dayBars = document.querySelectorAll('.day-bar');
+            const containers = document.querySelectorAll('.functions-container');
+            const details = document.querySelectorAll('.function-detail');
+            const functionBars = document.querySelectorAll('.function-bar-minimal');
+
+            functionBars.forEach(fb => {
+                const paleColor = fb.closest('.function-item').getAttribute('data-palecolor');
+                fb.style.backgroundColor = paleColor;
+            });
+
+            if (mode === 'compact') {
+                containers.forEach(c => c.style.display = 'none');
+                dayBars.forEach(b => b.style.background = '#e0e0e0');
+                details.forEach(d => d.style.display = 'none');
+            } else if (mode === 'level1') {
+                containers.forEach(c => c.style.display = 'block');
+                dayBars.forEach(b => b.style.background = '#d0d0f0');
+                details.forEach(d => d.style.display = 'none');
+            } else if (mode === 'level2') {
+                containers.forEach(c => c.style.display = 'block');
+                dayBars.forEach(b => b.style.background = '#d0d0f0');
+                details.forEach(d => c.style.display = 'block');
+            }
+        }
+    </script>
+</body>
+</html>

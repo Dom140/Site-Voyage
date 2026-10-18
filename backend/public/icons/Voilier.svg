@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur 1 : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du voilier (Même couleur 2 : #38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Mât principal -->
+    <rect x="248" y="110" width="8" height="240" rx="4" />
+
+    <!-- Grande voile (Saffran / Voile principale) -->
+    <path d="M 264 125 
+             L 375 295 
+             C 340 298, 300 298, 264 292 
+             Z" />
+
+    <!-- Voile d'avant (Foc / Génois) -->
+    <path d="M 240 145 
+             L 145 292 
+             C 175 295, 210 295, 240 290 
+             Z" />
+
+    <!-- Coque du voilier -->
+    <path d="M 120 320 
+             L 392 320 
+             C 370 365, 310 380, 256 380 
+             C 202 380, 142 365, 120 320 
+             Z" />
+
+    <!-- Vagues minimalistes -->
+    <path d="M 90 395 C 120 395, 135 405, 165 405 C 195 405, 210 395, 240 395 C 270 395, 285 405, 315 405 C 345 405, 360 395, 390 395 C 405 395, 415 398, 422 402 L 422 410 L 90 410 Z" opacity="0.6" />
+  </g>
+</svg>

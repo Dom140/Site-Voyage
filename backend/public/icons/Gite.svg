@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même rond #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du gîte (Couleur violette : #A855F7) -->
+  <g fill="#A855F7">
+    <!-- Toit principal du gîte -->
+    <path d="M 256 120 L 390 230 C 396 235 396 245 388 248 L 375 252 L 256 155 L 137 252 L 124 248 C 116 245 116 235 122 230 Z" />
+
+    <!-- Cheminée -->
+    <rect x="310" y="140" width="28" height="50" rx="4" />
+
+    <!-- Corps de la maison / Gîte -->
+    <rect x="150" y="240" width="212" height="130" rx="8" />
+
+    <!-- Petit arbre / Sapin à côté pour l'esprit gîte/nature -->
+    <path d="M 115 370 L 115 340 L 95 340 L 110 315 L 100 315 L 115 290 L 130 315 L 120 315 L 135 340 L 115 340 Z" />
+  </g>
+
+  <!-- Découpes en négatif (Fond #1E293B) pour conserver le style 2 couleurs -->
+  <g fill="#1E293B">
+    <!-- Porte d'entrée -->
+    <path d="M 231 370 L 231 300 C 231 286 281 286 281 300 L 281 370 Z" />
+
+    <!-- Fenêtres du haut (style champêtre / carreaux) -->
+    <rect x="180" y="260" width="36" height="36" rx="4" />
+    <rect x="296" y="260" width="36" height="36" rx="4" />
+
+    <!-- Fenêtre sous le toit (Œil-de-bœuf) -->
+    <circle cx="256" cy="195" r="14" />
+  </g>
+
+  <!-- Sol / Socle -->
+  <g fill="#A855F7">
+    <rect x="80" y="380" width="352" height="12" rx="6" />
+  </g>
+</svg>

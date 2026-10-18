@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur 1 : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du Taxi de face (Même couleur 2 : #38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Enseigne "TAXI" sur le toit -->
+    <path d="M 212 110 L 300 110 C 306 110 310 114 308 120 L 302 138 L 210 138 L 204 120 C 202 114 206 110 212 110 Z" />
+
+    <!-- Carrosserie principale (Pavillon + Capot) -->
+    <path d="M 185 146 
+             L 327 146 
+             C 340 146 350 154 358 178 
+             L 378 240 
+             C 392 248 402 260 402 278 
+             L 402 342 
+             C 402 352 394 360 384 360 
+             L 372 360 
+             L 372 384 
+             C 372 392 364 400 354 400 
+             L 332 400 
+             C 322 400 314 392 314 384 
+             L 314 360 
+             L 198 360 
+             L 198 384 
+             C 198 392 190 400 180 400 
+             L 158 400 
+             C 148 400 140 392 140 384 
+             L 140 360 
+             L 128 360 
+             C 118 360 110 352 110 342 
+             L 110 278 
+             C 110 260 120 248 134 240 
+             L 154 178 
+             C 162 154 172 146 185 146 Z" />
+  </g>
+
+  <!-- Découpes en négatif (Couleur du fond : #1E293B) pour un rendu épuré à 2 couleurs -->
+  <g fill="#1E293B">
+    <!-- Pare-brise -->
+    <path d="M 186 164 L 326 164 C 334 164 340 170 344 184 L 358 232 L 154 232 L 168 184 C 172 170 178 164 186 164 Z" />
+
+    <!-- Phares avant -->
+    <circle cx="152" cy="288" r="18" />
+    <circle cx="360" cy="288" r="18" />
+
+    <!-- Calandre / Grille centrale -->
+    <rect x="200" y="278" width="112" height="20" rx="6" />
+
+    <!-- Pare-chocs inférieur -->
+    <rect x="160" y="324" width="192" height="12" rx="6" />
+  </g>
+</svg>

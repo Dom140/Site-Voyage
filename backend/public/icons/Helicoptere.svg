@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur 1 : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Hélicoptère (Même couleur 2 : #38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Rotor principal (Hélice du haut) -->
+    <rect x="96" y="140" width="320" height="12" rx="6" />
+    <!-- Mât du rotor -->
+    <rect x="248" y="152" width="16" height="24" rx="4" />
+
+    <!-- Fuselage / Cabine principal -->
+    <path d="M 190 176 
+             C 270 176, 350 190, 350 250 
+             C 350 300, 290 320, 220 320 
+             C 170 320, 140 290, 140 250 
+             C 140 200, 160 176, 190 176 Z" />
+
+    <!-- Queue / Poutre arrière -->
+    <path d="M 160 230 
+             L 70 245 
+             C 62 246, 62 258, 70 259 
+             L 160 270 Z" />
+
+    <!-- Rotor de queue (Petite hélice arrière) -->
+    <path d="M 62 220 L 74 220 L 68 284 L 56 284 Z" />
+    <circle cx="65" cy="252" r="8" />
+
+    <!-- Patins d'atterrissage (Skids) -->
+    <!-- Supports -->
+    <rect x="200" y="320" width="12" height="30" rx="4" />
+    <rect x="280" y="320" width="12" height="30" rx="4" />
+    <!-- Barre du patin -->
+    <path d="M 150 350 L 330 350 C 340 350, 348 342, 352 332 L 362 332 C 356 350, 342 362, 330 362 L 150 362 C 140 362, 132 354, 132 344 L 144 344 C 144 348, 146 350, 150 350 Z" />
+  </g>
+
+  <!-- Découpes / Cockpit en transparence (Même couleur de fond : #1E293B) -->
+  <g fill="#1E293B">
+    <!-- Cockpit / Pare-brise avant -->
+    <path d="M 240 192 
+             C 285 192, 330 205, 332 245 
+             C 333 260, 310 265, 275 265 
+             C 240 265, 240 240, 240 192 Z" />
+  </g>
+</svg>

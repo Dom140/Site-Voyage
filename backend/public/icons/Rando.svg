@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur 1 : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du randonneur (Même couleur 2 : #38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Tête avec casquette -->
+    <circle cx="250" cy="115" r="24" />
+    <path d="M 230 108 C 240 98, 275 98, 285 108 L 295 110 L 270 115 Z" />
+
+    <!-- Sac à dos -->
+    <rect x="180" y="155" width="38" height="80" rx="12" transform="rotate(8 199 195)" />
+
+    <!-- Buste / Bâton droit (bras droit) -->
+    <path d="M 230 148 C 245 145, 260 148, 268 158 L 278 190 L 260 195 L 250 170 L 230 170 Z" />
+
+    <!-- Corps / Veste -->
+    <path d="M 220 150 L 255 150 C 265 170, 260 210, 250 240 L 210 235 C 215 200, 215 170, 220 150 Z" />
+
+    <!-- Bras gauche tenant le bâton de marche -->
+    <path d="M 235 160 L 285 190 L 275 200 L 225 170 Z" />
+
+    <!-- Bâton de randonnée -->
+    <rect x="282" y="160" width="8" height="230" rx="4" transform="rotate(-12 286 275)" />
+
+    <!-- Jambe avant (droite) en marche -->
+    <path d="M 240 235 L 285 305 L 260 315 L 220 250 Z" />
+    <!-- Chaussure avant -->
+    <path d="M 270 300 L 310 325 L 305 340 L 255 325 Z" />
+
+    <!-- Jambe arrière (gauche) -->
+    <path d="M 215 235 L 175 310 L 195 320 L 230 250 Z" />
+    <!-- Chaussure arrière -->
+    <path d="M 160 305 L 195 315 L 190 330 L 145 320 Z" />
+
+    <!-- Sol / Sentier épuré -->
+    <rect x="110" y="380" width="292" height="12" rx="6" />
+  </g>
+</svg>

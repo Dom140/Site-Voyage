@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même rond #1E293B que le bus) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments de la tente (Couleur violette) -->
+  <g fill="#A855F7">
+    <!-- Toile principale de la tente -->
+    <polygon points="256,120 110,360 402,360" />
+
+    <!-- Sol / Piquets de fixation -->
+    <rect x="90" y="360" width="332" height="16" rx="8" />
+  </g>
+
+  <!-- Ouverture / Entrée de la tente (Découpée en fond sombre) -->
+  <polygon points="256,180 170,360 342,360" fill="#1E293B" />
+
+  <!-- Intérieur / Piquets croisés en violet -->
+  <g fill="#A855F7">
+    <!-- Piquet central / rabats -->
+    <polygon points="256,180 200,360 256,360" opacity="0.4" />
+  </g>
+</svg>

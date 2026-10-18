@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même style que le bus : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du camping-car (Couleur 2 : Violet #A855F7) -->
+  <g fill="#A855F7">
+    <!-- Corps principal / Carrosserie du camping-car -->
+    <path d="M 148 116 C 136 116 128 124 128 136 L 128 352 C 128 364 138 374 150 374 L 160 374 L 160 392 C 160 403 169 412 180 412 L 196 412 C 207 412 216 403 216 392 L 216 374 L 296 374 L 296 392 C 296 403 305 412 316 412 L 332 412 C 343 412 352 403 352 392 L 352 374 L 362 374 C 374 374 384 364 384 352 L 384 136 C 384 124 376 116 364 116 Z" />
+
+    <!-- Rétroviseurs extérieurs -->
+    <path d="M 124 180 C 112 180 104 188 104 198 C 104 202 112 216 124 220 Z" />
+    <path d="M 388 180 C 400 180 408 188 408 198 C 408 202 400 216 388 220 Z" />
+  </g>
+
+  <!-- Découpes en transparence (Fond du cercle #1E293B) pour former les détails du camping-car -->
+  <g fill="#1E293B">
+    <!-- Visière / Alcôve supérieure (Capucine du camping-car) -->
+    <path d="M 152 134 C 152 130 156 128 162 128 L 350 128 C 356 128 360 130 360 134 L 360 154 L 152 154 Z" />
+
+    <!-- Pare-brise avant -->
+    <path d="M 152 170 L 360 170 L 360 250 C 360 256 355 260 349 260 L 163 260 C 157 260 152 256 152 250 Z" />
+
+    <!-- Phares avant -->
+    <rect x="152" y="290" width="52" height="14" rx="7" />
+    <rect x="308" y="290" width="52" height="14" rx="7" />
+
+    <!-- Calandre / Grille frontale -->
+    <rect x="228" y="292" width="56" height="10" rx="5" />
+
+    <!-- Pare-chocs inférieur -->
+    <rect x="180" y="332" width="152" height="14" rx="7" />
+  </g>
+</svg>

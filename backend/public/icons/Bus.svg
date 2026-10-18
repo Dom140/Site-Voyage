@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Couleur 1) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du bus (Couleur 2) -->
+  <g fill="#38BDF8">
+    <!-- Corps principal / Carrosserie du bus moderne -->
+    <path d="M 160 110 C 140 110 128 126 128 146 L 128 350 C 128 365 140 376 156 376 L 160 376 L 160 392 C 160 403 169 412 180 412 L 196 412 C 207 412 216 403 216 392 L 216 376 L 296 376 L 296 392 C 296 403 305 412 316 412 L 332 412 C 343 412 352 403 352 392 L 352 376 L 356 376 C 372 376 384 365 384 350 L 384 146 C 384 126 372 110 352 110 Z M 152 134 L 360 134 C 368 134 372 138 372 146 L 372 154 L 140 154 L 140 146 C 140 138 144 134 152 134 Z" />
+
+    <!-- Pare-brise & Vitres panoramiques -->
+    <path d="M 144 168 L 368 168 L 368 250 C 368 256 363 260 357 260 L 155 260 C 149 260 144 256 144 250 Z" />
+
+    <!-- Phares avant modernes (Bandeaux LED) -->
+    <rect x="148" y="290" width="56" height="12" rx="6" />
+    <rect x="308" y="290" width="56" height="12" rx="6" />
+
+    <!-- Logo / Calandre centrale -->
+    <rect x="232" y="292" width="48" height="8" rx="4" />
+
+    <!-- Pare-chocs bas / Prise d'air -->
+    <path d="M 180 330 L 332 330 C 336 330 340 334 340 338 C 340 342 336 346 332 346 L 180 346 C 176 346 172 342 172 338 C 172 334 176 330 180 330 Z" />
+
+    <!-- Retroviseurs aérodynamiques -->
+    <path d="M 124 176 C 112 176 104 184 104 196 C 104 200 112 216 124 220 Z" />
+    <path d="M 388 176 C 400 176 408 184 408 196 C 408 200 400 216 388 220 Z" />
+  </g>
+</svg>

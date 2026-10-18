@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Masque circulaire pour garder le contenu dans le rond -->
+    <clipPath id="circle-clip">
+      <circle cx="256" cy="256" r="240" />
+    </clipPath>
+  </defs>
+
+  <!-- Fond circulaire (#1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Ciel étoilé violet (Couleur 2 : #C084FC) -->
+  <g clip-path="url(#circle-clip)" fill="#C084FC">
+    <!-- Lune en croissant -->
+    <path d="M 340 120 C 300 120 268 152 268 192 C 268 232 300 264 340 264 C 354 264 367 260 378 253 C 358 277 327 292 292 292 C 237 292 192 247 192 192 C 192 137 237 92 292 92 C 309 92 326 96 340 105 C 330 114 335 120 340 120 Z" />
+
+    <!-- Étoiles à 4 branches -->
+    <!-- Grande étoile 1 -->
+    <path d="M 170 120 Q 170 140 150 140 Q 170 140 170 160 Q 170 140 190 140 Q 170 140 170 120 Z" />
+    <!-- Grande étoile 2 -->
+    <path d="M 230 310 Q 230 330 210 330 Q 230 330 230 350 Q 230 330 250 330 Q 230 330 230 310 Z" />
+    <!-- Étoile moyenne 1 -->
+    <path d="M 370 310 Q 370 322 358 322 Q 370 322 370 334 Q 370 322 382 322 Q 370 322 370 310 Z" />
+    <!-- Étoile moyenne 2 -->
+    <path d="M 120 250 Q 120 262 108 262 Q 120 262 120 274 Q 120 262 132 262 Q 120 262 120 250 Z" />
+
+    <!-- Petites étoiles (Points) -->
+    <circle cx="110" cy="180" r="5" />
+    <circle cx="230" cy="100" r="4" />
+    <circle cx="280" cy="60" r="6" />
+    <circle cx="390" cy="200" r="5" />
+    <circle cx="320" cy="380" r="6" />
+    <circle cx="160" cy="380" r="5" />
+    <circle cx="120" cy="320" r="4" />
+    <circle cx="280" cy="420" r="4" />
+    <circle cx="410" cy="270" r="4" />
+    <circle cx="200" cy="220" r="3" />
+    <circle cx="300" cy="270" r="3" />
+  </g>
+</svg>

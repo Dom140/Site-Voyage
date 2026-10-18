@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même rond noir/sombre que le bus) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du train couchette de face (Violet) -->
+  <g fill="#A855F7">
+    <!-- Pantographe / Équipement de toit -->
+    <path d="M 226 82 L 286 82 L 286 90 L 272 90 L 280 108 L 232 108 L 240 90 L 226 90 Z" />
+    <rect x="180" y="108" width="152" height="12" rx="4" />
+
+    <!-- Carrosserie principale du train (Profil haut double niveau) -->
+    <path d="M 172 120 
+             C 172 120, 256 114, 340 120 
+             C 365 122, 380 145, 380 170 
+             L 380 360 
+             C 380 372, 370 380, 356 380 
+             L 156 380 
+             C 142 380, 132 372, 132 360 
+             L 132 170 
+             C 132 145, 147 122, 172 120 Z" />
+
+    <!-- Rails -->
+    <rect x="100" y="396" width="312" height="12" rx="6" />
+    <rect x="150" y="416" width="212" height="8" rx="4" />
+  </g>
+
+  <!-- Découpes en transparence du fond (Effet 2 couleurs) -->
+  <g fill="#1E293B">
+    <!-- Pare-brise supérieur de la cabine -->
+    <path d="M 160 144 
+             C 210 138, 302 138, 352 144 
+             C 360 145, 362 152, 360 162 
+             L 354 186 
+             C 352 192, 344 196, 336 196 
+             L 176 196 
+             C 168 196, 160 192, 158 186 
+             L 152 162 
+             C 150 152, 152 145, 160 144 Z" />
+
+    <!-- Ligne de séparation des étages -->
+    <rect x="144" y="214" width="224" height="6" rx="3" />
+
+    <!-- Fenêtres des couchettes (Étage supérieur) -->
+    <rect x="160" y="234" width="32" height="24" rx="4" />
+    <rect x="208" y="234" width="32" height="24" rx="4" />
+    <rect x="272" y="234" width="32" height="24" rx="4" />
+    <rect x="320" y="234" width="32" height="24" rx="4" />
+
+    <!-- Motif Lune & Étoile (Symbole du train couchette / de nuit) -->
+    <path d="M 256 236 C 250 236 245 240 245 247 C 245 254 250 258 256 258 C 253 258 250 255 250 247 C 250 239 253 236 256 236 Z" />
+    <polygon points="263,238 264,240 266,240 264,242 265,244 263,243 261,244 262,242 260,240 262,240" />
+
+    <!-- Phares avant -->
+    <rect x="156" y="316" width="48" height="14" rx="7" />
+    <rect x="308" y="316" width="48" height="14" rx="7" />
+
+    <!-- Grille/Calandre inférieure -->
+    <rect x="220" y="320" width="72" height="8" rx="4" />
+    <rect x="180" y="348" width="152" height="10" rx="5" />
+  </g>
+</svg>

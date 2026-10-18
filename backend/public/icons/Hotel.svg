@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même rond sombre/noir : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments de l'hôtel (Violet : #A855F7) -->
+  <g fill="#A855F7">
+    <!-- Étoile principale au-dessus -->
+    <path d="M 256 95 L 263 116 L 285 116 L 267 129 L 274 150 L 256 137 L 238 150 L 245 129 L 227 116 L 249 116 Z" />
+    
+    <!-- Petites étoiles sur les côtés -->
+    <path d="M 205 110 L 210 124 L 225 124 L 213 133 L 217 147 L 205 138 L 193 147 L 197 133 L 185 124 L 200 124 Z" transform="scale(0.8) translate(50, 25)" />
+    <path d="M 307 110 L 312 124 L 327 124 L 315 133 L 319 147 L 307 138 L 295 147 L 299 133 L 287 124 L 302 124 Z" transform="scale(0.8) translate(72, 25)" />
+
+    <!-- Structure du bâtiment principal -->
+    <path d="M 156 160 C 156 150 166 140 176 140 L 336 140 C 346 140 356 150 356 160 L 356 400 L 156 400 Z" />
+
+    <!-- Ligne de sol / Socle -->
+    <rect x="120" y="400" width="272" height="16" rx="8" />
+  </g>
+
+  <!-- Découpes / Fenêtres et portes (Couleur du fond pour conserver les 2 couleurs) -->
+  <g fill="#1E293B">
+    <!-- Enseigne "H" -->
+    <path d="M 240 160 L 248 160 L 248 172 L 264 172 L 264 160 L 272 160 L 272 190 L 264 190 L 264 178 L 248 178 L 248 190 L 240 190 Z" />
+
+    <!-- Rangée de fenêtres 1 -->
+    <rect x="184" y="210" width="32" height="40" rx="4" />
+    <rect x="240" y="210" width="32" height="40" rx="4" />
+    <rect x="296" y="210" width="32" height="40" rx="4" />
+
+    <!-- Rangée de fenêtres 2 -->
+    <rect x="184" y="270" width="32" height="40" rx="4" />
+    <rect x="240" y="270" width="32" height="40" rx="4" />
+    <rect x="296" y="270" width="32" height="40" rx="4" />
+
+    <!-- Entrée principale / Porte voûtée -->
+    <path d="M 232 400 L 232 352 C 232 338 243 330 256 330 C 269 330 280 338 280 352 L 280 400 Z" />
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Domicile / Maison (Violet : #8B5CF6) -->
+  <g fill="#8B5CF6">
+    <!-- Toit -->
+    <path d="M 256 120 L 380 230 C 386 235 386 245 378 248 L 362 248 L 362 370 C 362 381 353 390 342 390 L 170 390 C 159 390 150 381 150 370 L 150 248 L 134 248 C 126 245 126 235 132 230 Z" />
+  </g>
+
+  <!-- Découpes intérieures (Fond sombre) pour style picto 2D épuré -->
+  <g fill="#1E293B">
+    <!-- Porte -->
+    <rect x="226" y="280" width="60" height="110" rx="6" />
+
+    <!-- Fenêtre supérieure / Lucarne -->
+    <circle cx="256" cy="200" r="20" />
+  </g>
+</svg>

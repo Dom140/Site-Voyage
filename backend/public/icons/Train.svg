@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (#1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du TGV de face (#38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Pantographe (sur le toit) -->
+    <path d="M 236 100 L 276 100 L 276 108 L 262 108 L 270 125 L 242 125 L 250 108 L 236 108 Z" />
+
+    <!-- Silhouette / Carrosserie aérodynamique du TGV -->
+    <path d="M 200 125 
+             C 230 120, 282 120, 312 125 
+             C 340 130, 375 160, 385 240 
+             C 392 290, 392 340, 388 365 
+             C 386 375, 376 380, 365 380 
+             L 147 380 
+             C 136 380, 126 375, 124 365 
+             C 120 340, 120 290, 127 240 
+             C 137 160, 172 130, 200 125 Z" />
+
+    <!-- Grand pare-brise profilé (découpé en négatif par la transparence de la forme originale, représenté ici par les fenêtres/phares nettoyés) -->
+  </g>
+
+  <!-- Masque pour évider le verre et les détails (style picto épuré) -->
+  <!-- Utilisation de découpes en transparence (#1E293B) pour conserver le SVG à 2 couleurs -->
+  <g fill="#1E293B">
+    <!-- Pare-brise avant -->
+    <path d="M 175 165 
+             C 220 155, 292 155, 337 165 
+             C 348 168, 350 180, 345 205 
+             C 340 220, 330 225, 256 228 
+             C 182 225, 172 220, 167 205 
+             C 162 180, 164 168, 175 165 Z" />
+
+    <!-- Phares avant modernes (profilés) -->
+    <polygon points="150,305 200,305 190,320 145,315" />
+    <polygon points="362,305 312,305 322,320 367,315" />
+
+    <!-- Ligne de bas de caisse / Grille -->
+    <rect x="206" y="340" width="100" height="12" rx="6" />
+  </g>
+
+  <!-- Rails en bas pour ancrer le pictogramme -->
+  <g fill="#38BDF8">
+    <rect x="110" y="395" width="292" height="12" rx="6" />
+  </g>
+</svg>

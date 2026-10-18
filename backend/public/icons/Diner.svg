@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (#1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Assiette en 2D (Orange) -->
+  <g fill="#F97316">
+    <!-- Bord extérieur de l'assiette -->
+    <circle cx="256" cy="256" r="160" />
+  </g>
+
+  <!-- Relief / Creux intérieur de l'assiette (Couleur du fond pour conserver 2 couleurs) -->
+  <circle cx="256" cy="256" r="115" fill="#1E293B" />
+
+  <!-- Fond du creux de l'assiette (Orange) -->
+  <circle cx="256" cy="256" r="95" fill="#F97316" />
+</svg>

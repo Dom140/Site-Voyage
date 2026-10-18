@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même couleur 1 : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Marcheur / Randonneur (Même couleur 2 : #38BDF8) -->
+  <g fill="#38BDF8">
+    <!-- Tête -->
+    <circle cx="270" cy="115" r="28" />
+
+    <!-- Buste / Corps -->
+    <path d="M 245 155 
+             C 230 155, 215 165, 210 180 
+             L 190 240 
+             C 186 250, 192 260, 202 262 
+             C 212 264, 222 258, 226 248 
+             L 240 205 
+             L 250 285 
+             L 285 190 
+             L 285 165 
+             C 285 155, 260 155, 245 155 Z" />
+
+    <!-- Bras avant tenant le bâton -->
+    <path d="M 270 165 
+             L 310 210 
+             C 316 217, 327 217, 333 210 
+             C 339 203, 338 192, 331 186 
+             L 288 158 
+             Z" />
+
+    <!-- Bâton de marche -->
+    <rect x="320" y="140" width="8" height="250" rx="4" transform="rotate(12 324 265)" />
+
+    <!-- Sac à dos -->
+    <path d="M 185 170 
+             C 170 170, 160 182, 160 197 
+             L 160 245 
+             C 160 260, 170 270, 185 270 
+             L 215 260 
+             L 210 180 
+             Z" />
+
+    <!-- Jambe arrière (droite sur l'image) -->
+    <path d="M 225 275 
+             L 170 335 
+             L 135 390 
+             C 130 398, 132 408, 140 413 
+             C 148 418, 158 415, 163 407 
+             L 195 355 
+             L 245 300 
+             Z" />
+
+    <!-- Jambe avant (gauche sur l'image) -->
+    <path d="M 250 280 
+             L 290 340 
+             L 330 395 
+             C 335 402, 345 404, 353 399 
+             C 360 394, 362 384, 357 377 
+             L 315 325 
+             L 272 265 
+             Z" />
+
+    <!-- Ligne de sol / Sentier -->
+    <rect x="100" y="415" width="312" height="12" rx="6" />
+  </g>
+</svg>

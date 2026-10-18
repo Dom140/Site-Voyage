@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même fond : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du sandwich (Couleur 2 : Orange #F97316) -->
+  <g fill="#F97316">
+    <!-- Tranche de pain supérieure -->
+    <path d="M 120 220 
+             C 120 200, 140 180, 256 180 
+             C 372 180, 392 200, 392 220 
+             C 392 235, 380 240, 360 240 
+             L 152 240 
+             C 132 240, 120 235, 120 220 Z" />
+
+    <!-- Garniture (Salade / Fromage dépassants) -->
+    <path d="M 130 252 
+             Q 150 270 170 252 
+             Q 190 270 210 252 
+             Q 230 270 250 252 
+             Q 270 270 290 252 
+             Q 310 270 330 252 
+             Q 350 270 370 252 
+             Q 385 265 380 275 
+             L 132 275 
+             Q 115 265 130 252 Z" />
+
+    <!-- Tranche de pain inférieure -->
+    <path d="M 140 288 
+             L 372 288 
+             C 382 288, 388 296, 384 306 
+             C 376 326, 330 340, 256 340 
+             C 182 340, 136 326, 128 306 
+             C 124 296, 130 288, 140 288 Z" />
+  </g>
+</svg>

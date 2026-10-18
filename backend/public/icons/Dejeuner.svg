@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même fond : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du pictogramme assiette + couverts (Couleur Orange : #F97316) -->
+  <g fill="#F97316">
+    <!-- Assiette (Cercle extérieur et bordure) -->
+    <circle cx="256" cy="256" r="110" />
+  </g>
+
+  <!-- Creux de l'assiette (Formé par transparence/couleur du fond) -->
+  <circle cx="256" cy="256" r="85" fill="#1E293B" />
+
+  <!-- Intérieur de l'assiette -->
+  <circle cx="256" cy="256" r="70" fill="#F97316" opacity="0.2" />
+
+  <!-- Couverts (Orange : #F97316) -->
+  <g fill="#F97316">
+    <!-- Fourchette (à gauche) -->
+    <path d="M 105 150 C 105 195 125 210 135 215 L 135 362 C 135 368 140 372 146 372 L 154 372 C 160 372 165 368 165 362 L 165 215 C 175 210 195 195 195 150 L 183 150 L 183 190 L 173 190 L 173 150 L 161 150 L 161 190 L 151 190 L 151 150 L 139 150 L 139 190 L 129 190 L 129 150 Z" />
+
+    <!-- Couteau (à droite) -->
+    <path d="M 317 150 L 317 220 C 317 235 327 245 342 245 L 347 245 L 347 362 C 347 368 352 372 358 372 L 366 372 C 372 372 377 368 377 362 L 377 150 C 340 150 317 170 317 150 Z" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire identique (Couleur 1) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Éléments du bateau de croisière (Couleur 2) -->
+  <g fill="#38BDF8">
+    <!-- Cheminées / Tunnels supérieurs -->
+    <rect x="200" y="120" width="24" height="40" rx="4" />
+    <rect x="236" y="100" width="32" height="60" rx="6" />
+
+    <!-- Superstructure / Ponts supérieurs -->
+    <path d="M 180 170 L 332 170 C 338 170 342 174 342 180 L 342 200 L 170 200 L 170 180 C 170 174 174 170 180 170 Z" />
+    <path d="M 150 210 L 362 210 C 368 210 372 214 372 220 L 372 240 L 140 240 L 140 220 C 140 214 144 210 150 210 Z" />
+
+    <!-- Passerelle de navigation (Vitres supérieures) -->
+    <path d="M 190 180 L 322 180 L 322 190 L 190 190 Z" fill="#1E293B" />
+
+    <!-- Coque principale du navire -->
+    <path d="M 110 250 L 390 250 C 405 250 420 262 410 285 L 360 360 C 350 375 330 385 300 385 L 140 385 C 120 385 105 370 100 350 L 90 270 C 88 258 98 250 110 250 Z" />
+
+    <!-- Hublots / Vitres de la coque (Découpages en couleur 1) -->
+    <circle cx="160" cy="285" r="10" fill="#1E293B" />
+    <circle cx="210" cy="285" r="10" fill="#1E293B" />
+    <circle cx="260" cy="285" r="10" fill="#1E293B" />
+    <circle cx="310" cy="285" r="10" fill="#1E293B" />
+    <circle cx="360" cy="285" r="10" fill="#1E293B" />
+
+    <!-- Vagues / Mer stylisée sous le bateau -->
+    <path d="M 80 395 C 110 395 125 410 155 410 C 185 410 200 395 230 395 C 260 395 275 410 305 410 C 335 410 350 395 380 395 C 410 395 425 410 440 410 L 440 422 C 425 422 410 407 380 407 C 350 407 335 422 305 422 C 275 422 260 407 230 407 C 200 407 185 422 155 422 C 125 422 110 407 80 407 Z" />
+  </g>
+</svg>

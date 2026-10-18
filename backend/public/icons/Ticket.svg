@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Fond circulaire (Même style que le bus : #1E293B) -->
+  <circle cx="256" cy="256" r="240" fill="#1E293B" />
+
+  <!-- Ticket de cinéma vert centré (#22C55E) -->
+  <g fill="#22C55E">
+    <!-- Ticket de cinéma avec encoches latérales -->
+    <path d="M 160 140 
+             L 352 140 
+             A 20 20 0 0 1 372 160 
+             L 372 236 
+             A 20 20 0 0 0 372 276 
+             L 372 352 
+             A 20 20 0 0 1 352 372 
+             L 160 372 
+             A 20 20 0 0 1 140 352 
+             L 140 276 
+             A 20 20 0 0 0 140 236 
+             L 140 160 
+             A 20 20 0 0 1 160 140 Z" />
+  </g>
+
+  <!-- Découpes en transparence pour le pictogramme (Couleur du fond) -->
+  <g fill="#1E293B">
+    <!-- Ligne de pointillés de détachement (centre vertical) -->
+    <line x1="256" y1="155" x2="256" y2="357" stroke="#1E293B" stroke-width="6" stroke-dasharray="10 10" />
+
+    <!-- Étoile centrale (Cinéma) -->
+    <polygon points="200,230 206,248 225,248 210,259 215,277 200,266 185,277 190,259 175,248 194,248" />
+
+    <!-- Motif projecteur / Bobine (côté droit) -->
+    <circle cx="310" cy="240" r="14" />
+    <circle cx="310" cy="272" r="14" />
+    <polygon points="310,256 335,242 335,270" />
+  </g>
+</svg>
